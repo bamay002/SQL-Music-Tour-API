@@ -2,10 +2,16 @@
 const express = require('express')
 const app = express()
 
+// CONTROLLERS
+const bandsController = require('./controllers/band_controller')
+
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+// CONTROLLER SETUP
+app.use('/bands', bandsController)
 
 // ROOT
 app.get('/', (req, res) => {
