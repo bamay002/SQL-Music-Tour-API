@@ -1,10 +1,21 @@
 const bands = require('express').Router();
 const db = require('../models');
 const { Band } = db;
+const { Op } = require('sequelize')
 
 bands.get('/', async (req, res) => {
     try{
-        const foundBands = await Band.findAll()
+        const searchTerm = req.query.name ? req.query.name : ''
+        const foundBands = await Band.findAll({
+        order: [
+            ['available_start_time', 'ASC'],
+            ['name', 'ASC']
+        ], where : {
+            name: {
+                [Op.iLike] : `%${searchTerm}%`
+            }
+        }
+        })
         res.status(200).json(foundBands)
     } catch(e){
         res.status(500).json(e)
