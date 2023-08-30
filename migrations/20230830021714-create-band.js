@@ -25,10 +25,6 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
-      recommendation: {
-        type: Sequelize.STRING,
-        allowNull: false
-      }
     });
   },
   async down(queryInterface, Sequelize) {

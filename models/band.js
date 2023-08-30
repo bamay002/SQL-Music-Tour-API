@@ -35,10 +35,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false
     },
-    recommendation: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    }
   }, {
     sequelize,
     modelName: 'Band',
