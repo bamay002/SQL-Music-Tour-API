@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         through: Stages_Event
       })
 
-      Stages.belongsToMany(SetTime , {
+      Stages.hasMany(SetTime , {
         foreignKey: 'stage_id',
         as: 'set_times'
       })
