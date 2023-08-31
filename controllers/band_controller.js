@@ -23,7 +23,7 @@ bands.get('/', async (req, res) => {
 })
 
 bands.get('/:id', async (req, res) => {
-    const {id } = req.params;
+    const { id } = req.params;
     try{
         const foundBand = await Band.findOne({
             where: { band_id: id }
